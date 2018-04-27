@@ -1,0 +1,885 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>GDI LA - Introduction to React.js</title>
+
+		<meta name="description" content="Learn the basics of using React.js. Forked from Hakim El Hattab's reveal.js">
+		<meta name="author" content="Girl Develop It">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="dist/css/reveal.css">
+		<link rel="stylesheet" href="dist/css/default.css" id="theme">
+		<link rel="stylesheet" href="dist/css/custom.css">
+
+		<!-- For syntax highlighting -->
+		<!-- light editor --><link rel="stylesheet" href="dist/css/light.css">
+		<!-- dark editor <link rel="stylesheet" href="dist/css/dark.css">-->
+
+		<link rel="stylesheet" href="plugin/accessibility-helper/css/accessibility-helper.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!-- If use the PDF print sheet so students can print slides-->
+
+		<link rel="stylesheet" href="dist/css/print/pdf.css" type="text/css" media="print">
+		<link rel="icon" type="image/x-icon" href="favicon.ico" />
+		<!--[if lt IE 9]>
+				<script src="dist/js/html5shiv.js"></script>
+				<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<!-- Title Slide -->
+				<section>
+					<img src="dist/img/circle-gdi-logo.png" alt="GDI Logo" class="noborder"/>
+					<h1>Introduction to React.js</h1>
+					<h2>Part One</h2>
+				</section>
+
+				<!-- Welcome-->
+				<section>
+					<h2>Welcome!</h2>
+					<div>
+						<p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
+						<p class="green">Some &ldquo;rules&rdquo;</p>
+						<ul>
+							<li>We are here for you!</li>
+							<li>Every question is important</li>
+							<li>Help each other</li>
+							<li>Have fun</li>
+						</ul>
+					</div>
+				</section>
+
+				<!-- Wifi info -->
+				<section>
+						<h2>Welcome!</h2>
+						<h4 class="blue">Wifi Info</h4>
+						<p>
+								<strong>Network: IndieDesk 2g or 5g or Indie-Backdesk</strong></p>
+						<p>
+								<strong>Password: dtlatech</strong></p>
+						<br/>
+						<h3>Class Slides</h3>
+						<p>Please download workshop files at:<br />
+						<a href="http://gdila.org/react-part1" target="_blank">gdila.org/react-part1</a></p>
+				</section>
+
+				<!-- Host/sponsor -->
+				<section>
+						<h2>Thanks to our host:</h2>
+						<h1>IndieDesk!</h1>
+				</section>
+
+				<!-- Introductions -->
+				<section>
+					<h2>Welcome!</h2>
+					<div class="align-left">
+						<p class="blue">Tell us about yourself.</p>
+						<ul>
+							<li>Who are you?</li>
+							<li>What do you hope to get out of the class?</li>
+							<li>If you could live anywhere in the world and have everything and everyone that you love with you, where would you choose to live?</li>
+						</ul>
+					</div>
+				</section>
+
+				<!-- TAs -->
+				<section>
+					<h2>Teaching Assistants</h2>
+					<h1 class="green">Thank you!</h1>
+					<div class="align-left">
+						<p class="blue">Tell us about yourself.</p>
+						<ul>
+							<li>Who are you?</li>
+							<li>If you could live anywhere in the world and have everything and everyone that you love with you, where would you choose to live?</li>
+						</ul>
+					</div>
+				</section>
+
+				<!-- Teacher -->
+				<section>
+					<h1>About Me</h1>
+				</section>
+
+				<!-- Overview -->
+				<section>
+					<h2>Overview</h2>
+					<p>A quick peek at what we&rsquo;ll be learning today</p>
+					<ul>
+						<li>What is React and why should you learn it?</li>
+						<li>Thinking in React</li>
+						<li>The virtual DOM</li>
+						<li>JS Objects for React.js</li>
+						<li>State, components, and lifecycle methods</li>
+						<li>Forms with React</li>
+					</ul>
+				</section>
+
+				<!-- What is React -->
+				<section>
+					<h2>What is React.js?</h2>
+					<div class="align-left">
+						<ul>
+							<li>React is a JavaScript library for building interactive UI&rsquo;s.</li>
+							<li>It was created by Facebook.</li>
+							<li>It&rsquo;s used by Netflix, Air Bnb, Instagram, and many, many others.</li>
+							<li>Fast, efficient, and highly reusable code.</li>
+						</ul>
+					</div>
+				</section>
+
+				<!-- JS Bin Intro -->
+				<section>
+					<h2>Let&rsquo;s Develop It!</h2>
+					<p>We&rsquo;ll be using JS Bin today. Let&rsquo;s get comfortable with it.</p>
+					<ol>
+						<li>Go to <a href="http://jsbin.com" target="_blank">jsbin.com</a></li>
+						<li>Sign in or sign up. You can use your GitHub account.</li>
+						<li>Tour and group exercise</li>
+					</ol>
+				</section>
+
+				<!-- Old way -->
+				<section>
+					<h2>The &ldquo;Old&rdquo; Way</h2>
+					<p>Using jQuery or vanilla JavaScript we would:</p>
+					<ul>
+						<li>Write some HTML.</li>
+						<li>In the JavaScript, write selectors for various buttons, form elements, and DOM elements that exist in the HTML.</li>
+						<li>Listen for events on those elements - click, mouseover, scroll, double-click, keypress, etc.</li>
+						<li>Write some code to react to those events - change the DOM as needed.</li>
+					</ul>
+					<p>Take a look at <a href="http://jsbin.com/xupice/2/edit?html,js,output" target="_blank">this example</a>.</p>
+				</section>
+
+				<!-- Disadvantages -->
+				<section>
+					<h2>Disadvantages of the &ldquo;Old&rdquo; Way</h2>
+					<ul>
+						<li>Gets complex pretty quickly</li>
+						<li>Lots of forks - if/else if/else if/else</li>
+						<li>Easy to introduce bugs</li>
+					</ul>
+					<p><img src="dist/img/oldway.png" alt=""></p>
+				</section>
+
+				<!-- The React Way -->
+				<section>
+					<h2>The React Way</h2>
+					<ul>
+						<li>Made up of individual reusable components.</li>
+						<li>Event handlers update the <span class="blue">state.</span></li>
+						<li><span class="blue">Components</span> render and re-render as needed, based on the state.</li>
+						<li>The library takes care of DOM updates using the <span class="blue">virtual DOM</span>.</li>
+					</ul>
+					<p><img src="dist/img/reactway.png" alt=""></p>
+				</section>
+
+				<!-- Concepts: State -->
+				<section>
+					<h2>React concepts</h2>
+					<h3>State</h3>
+					<ul>
+						<li>A JavaScript object</li>
+						<li>A set of key/value pairs that represents the current state of the application.</li>
+					</ul>
+					<pre><code class="javascript">var me = {
+	mood: happy,
+	age: 42,
+	sleeping: false
+};</code></pre>
+				</section>
+
+				<!-- Concepts: Component -->
+				<section>
+					<h2>React concepts</h2>
+					<h3>Component</h3>
+					<ul>
+						<li>A self-contained and reusable bit of code</li>
+						<li>One &ldquo;piece&rdquo; of a UI</li>
+					</ul>
+					<p><img src="dist/img/lego.jpg" alt=""></p>
+				</section>
+
+				<!-- Concepts: Virtual DOM -->
+				<section>
+					<h2>React concepts</h2>
+					<h3>Virtual DOM (vDOM)</h3>
+					<ul>
+						<li>A JavaScript object</li>
+						<li>Created by the library auto-magically</li>
+						<li>An in-memory representation of DOM nodes and elements</li>
+						<li>The library updates the virtual DOM - then updates the DOM only when necessary.</li>
+					</ul>
+					<p><img src="dist/img/virtualdom.png" alt=""></p>
+					<p><small><a href="http://blog.reverberate.org/2014/02/react-demystified.html" target="_blank">Learn more</a></small></p>
+				</section>
+
+				<!-- Concepts: JSX -->
+				<section>
+					<h2>React concepts</h2>
+					<h3>JSX</h3>
+					<ul>
+						<li>A short-hand language that lets you create JavaScript objects using an HTML-like syntax.</li>
+						<li>Generates JavaScript objects by matching HTML element names to components.</li>
+					</ul>
+				</section>
+
+				<!-- Concepts: JSX Example -->
+				<section>
+					<h2>React concepts</h2>
+					<h3>JSX Example</h3>
+					<ul>
+						<li>To create a component called <code class="inline">WelcomeText</code> that generates the HTML:
+							<pre><code class="xml">&lt;p>Welcome to the React class!&lt;/p></code></pre>
+							We could create a component like this:
+							<pre><code class="javascript">var WelcomeText = function() {
+	return (
+		&lt;p>Welcome to the React class!&lt;/p>
+	);
+};</code></pre>
+						Which is the equivalent of:
+					<pre><code class="javascript">var WelcomeText = React.createComponent({
+	render: function render() {
+		return React.createElement(
+			"p",
+			null,
+			"Welcome to the React class!"
+		);
+	}
+});</code></pre>
+						</li>
+
+					</ul>
+				</section>
+
+				<!-- Component exercise -->
+				<section>
+					<h2>Let&rsquo;s Develop It Together!</h2>
+					<h3>Your first React component</h3>
+					<ol>
+						<li>Go to <a href="http://jsbin.com/gekozos/3/edit?html,css,js,output" target="_blank">http://jsbin.com/gekozos/3/edit?html,css,js,output</a></li>
+						<li>We&rsquo;ll work together to make a component called <code class="inline">UserProfile</code>. It should include:
+							<img src="dist/img/userprofile.png" class="right" alt="">
+							<ol>
+								<li>An avatar</li>
+								<li>Your first and last name</li>
+								<li>Your favorite color</li>
+							</ol>
+						</li>
+					</ol>
+					<p><small>Avatar photo: <code class="inline">https://randomuser.me/api/portraits/thumb/lego/8.jpg</code></small></p>
+					<p><small>Finished example: <a href="http://jsbin.com/namupub/1/edit?html,css,js,output" target="_blank">http://jsbin.com/vebewe/3/edit?html,css,js,output</a></small></p>
+				</section>
+
+				<!-- JSX Gotchas -->
+				<section>
+					<h2>JSX Gotchas</h2>
+					<ul>
+						<li>Only one root element</li>
+						<li>To insert evaluated JS, use <code class="inline">{}</code>
+							<ul>
+								<li><code class="inline">{12 + 4}</code></li>
+								<li><code class="inline">{/* comment */}</code></li>
+							</ul>
+						</li>
+						<li>Whitespace takes extra work</li>
+						<li>Special terms
+							<ul>
+								<li><strong>class:</strong> use <code class="inline">className</code> to assign CSS classes</li>
+								<li><strong>for:</strong> use <code class="inline">htmlFor</code> instead</li>
+							</ul>
+						</li>
+						<li>Learn more in the <a href="https://facebook.github.io/react/docs/jsx-in-depth.html" target="_blank">JSX docs</a></li>
+					</ul>
+				</section>
+
+				<!-- Dynamic Components -->
+				<section>
+					<h2>Making Components Dynamic</h2>
+					<ul>
+						<li>Components use &lsquo;props&rsquo; or properties for dynamic bits of data and functionality.</li>
+						<li>Props are expressed with the same syntax as HTML attributes, i.e. <code class="inline">name={someValue}</code></li>
+						<li>A prop can be set to any JS value
+							<ul>
+								<li>String, Array, Object, Function, etc.</li>
+								<li>Other React components</li>
+							</ul>
+						</li>
+					</ul>
+					<pre><code class="javascript">// WelcomeText accepts the prop 'name'
+&lt;WelcomeText name={'Adam'} />
+
+// WelcomeText component
+var WelcomeText = function(props) {
+	return (
+	 &lt;p>Welcome to the class, {props.name}!&lt;/p>
+	);
+};
+
+// will output
+// &lt;p>Welcome to the class, Adam!&lt;/p></code></pre>
+				<p><small><a href="http://jsbin.com/paquxi/2/edit?css,js,output" target="_blank">http://jsbin.com/paquxi/2/edit?css,js,output</a></small></p>
+				</section>
+
+				<!-- Dynamic Components Example -->
+				<section>
+					<h2>Dynamic Components Example</h2>
+					<p><a href="http://jsbin.com/watikop/edit?css,js,output" target="_blank">http://jsbin.com/watikop/edit?css,js,output</a></p>
+				</section>
+
+				<!-- JS Objects -->
+				<section>
+					<h2>Objects: A quick review</h2>
+					<ul>
+						<li>What is an object?</li>
+						<li>How do you make an object?</li>
+						<li>Key/value pairs</li>
+						<li>Adding methods to objects</li>
+					</ul>
+				</section>
+
+				<!-- JS Objects -->
+				<section>
+					<h2>What is an object?</h2>
+					<ul>
+						<li>A way to describe concepts in an application or program.
+							<ul>
+								<li>Customer</li>
+								<li>Product</li>
+								<li>Order</li>
+							</ul>
+						</li>
+						<li>A &ldquo;thing&rdquo; with properties and methods
+							<ul>
+								<li>Properties describe the object</li>
+								<li>Methods are things the object can do</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<!-- Make an object -->
+				<section>
+					<h2>How to make an object</h2>
+					<p>With an object literal:</p>
+					<pre><code class="javascript">var contact0 = {
+	firstName: 'Natalie',
+	lastName: 'MacLees',
+	organization: 'Girl Develop It'
+};</code></pre>
+					<p>Adding properties:</p>
+					<pre><code class="javascript">var contact1 = {};
+contact1.firstName = 'Irina';
+contact1.lastName = 'Muchnik';
+contact1['organization'] = 'Girl Develop It';</code></pre>
+					<p>Objects can be nested:</p>
+					<pre><code class="javascript">var contact2 = {
+	firstName = 'Liz',
+	lastName = 'Krane',
+	organization: {
+		name: 'Girl Develop It',
+		website: 'http://girldevelopit.com'
+	}
+};</code></pre>
+				</section>
+
+				<!-- Accessing properties of objects -->
+				<section>
+					<h2>Accessing properties of objects</h2>
+					<p>Two ways:</p>
+					<br/>
+					<p>With dot notation:</p>
+					<pre><code class="javascript">contact0.firstName;
+contact1.lastName;</code></pre>
+					<br/>
+					<p>With square bracket notation:</p>
+					<pre><code class="javascript">contact0['firstName'];
+contact2['lastName'];</code></pre>
+				</section>
+
+				<!-- Maps, Dictionnaries, Hashes -->
+				<section>
+					<h2>Maps, Dictionaries, &amp; Hashes</h2>
+					<p>An object is often used as a <span class="blue">map</span>, <span class="blue">dictionary</span> or <span class="blue">dict</span>, <span class="blue">hash</span>, or a key/value store.</p>
+					<p>These are data structures that are indexed by <span class="blue">keys</span>.</p>
+					<pre><code class="javascript">var appData = {
+	users: [{
+			name: 'joe',
+			id: 2
+		}, {
+			name: 'jane',
+			id: 1
+		}
+	],
+	books: [{
+			title: 'Green Eggs &amp; Ham',
+			author: 'Dr. Suess',
+			ISBN13: '978-0394800165'
+		}
+	],
+	booksByISBN13: {
+		'978-0394800165': {
+			title: 'Green Eggs &amp; Ham',
+			author: 'Dr. Suess',
+			ISBN13: '978-0394800165'
+		}
+	}
+};</code></pre>
+				</section>
+
+				<!-- Methods and 'this' -->
+				<section>
+					<h2><code class="inline">this</code> and object methods</h2>
+					<ul>
+						<li>A method is a function that is set as the value of a property</li>
+						<li>The <code class="inline">this</code> keyword refers to the enclosing object</li>
+						<pre><code class="javascript">var currentUser = {
+	firstName: 'Deanna',
+	middleInitial: 'J',
+	lastName: 'Gardner',
+	fullName: function() {
+		// 'this' is a reference to the enclosing object
+		return this.firstName + ' ' + this.lastName;
+	}
+};
+
+console.log(currentUser.fullName());
+
+function getMiddleInitial() {
+	return this.middleInitial;
+}
+
+currentUser.mI = getMiddleInitial;
+
+console.log(currentUser.mI()); // logs 'J'</code></pre>
+					</ul>
+				</section>
+
+				<!-- React props are objects -->
+				<section>
+					<h2>React props === objects</h2>
+					<pre><code class="javascript">var Welcome = function(props) {
+	return (
+		&lt;p>Welcome {props.firstName} {props.lastName}!&lt;/p>
+	);
+};
+
+// We pass the props like this
+&lt;Welcome firstName={'Billie'} lastName={'Jensen'} />
+
+// order doesn't matter for props
+&lt;Welcome lastName={'Lee'} firstName={'Brennen'} /></code></pre>
+				</section>
+
+				<!-- Exercise: Project Widget Props -->
+				<section>
+					<h2>Let&rsquo;s Develop It!</h2>
+					<ul>
+						<li>Go back to the profile widget component we built earlier
+							<ul>
+								<li>Or you can start from <a href="http://jsbin.com/namupub/1/edit?html,css,js,output" target="_blank">this one</a>.</li>
+							</ul>
+						</li>
+						<li>Make the component dynamic:
+							<ul>
+								<li>Identify what props the component needs.</li>
+								<li>Change the <code class="inline">UserProfile</code> function so it accepts props</li>
+								<li>Add dynamic values to the JSX</li>
+								<li>Pass props to the <code class="inline">UserProfile</code> component</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<!-- Break -->
+				<section>
+					<h1>Take a break</h1>
+				</section>
+
+				<!-- Creating a component -->
+				<section>
+					<h2>Creating a React component</h2>
+					<h3><code class="inline">React.createClass</code></h3>
+					<p>A library method that we will use to define React components with their own state.</p>
+					<pre><code class="javascript">// The React library provides an object 'React' with a function 'createClass'
+var myComponent = React.createClass({
+	render: function() {
+		return (
+			&lt;p>Some text&lt;p>
+		);
+	};
+});</code></pre>
+				</section>
+
+				<!-- Rendering a component -->
+				<section>
+					<h2>Getting a component onto the page</h2>
+					<h3><code class="inline">ReactDOM.render</code></h3>
+					<p>A library method that we will use to place components into our webpage</p>
+					<pre><code class="javascript">// The ReactDOM library provides an object 'ReactDOM' with a function 'render'
+
+// It needs the component and the target in the DOM
+ReactDOM.render(&lt;MyReactComponent />, mountAtNode);
+
+// mountAtNode in our case is
+document.getElementByID('app')</code></pre>
+				</section>
+
+				<!-- Stateful components -->
+				<section>
+					<h2>React stateful components</h2>
+					<ul>
+						<li>React components built with JSX just like before</li>
+						<li>Plus&hellip;
+							<ul>
+								<li>State</li>
+								<li>Mutation methods</li>
+							</ul>
+						</li>
+					</ul>
+					<p>A presentational component:</p>
+					<pre><code class="javascript">var Welcome = function(props) {
+	return (
+		&lt;p>Welcome {props.firstName} {props.lastName}!&lt;/p>
+	);
+};</code></pre>
+					<p>A stateful component:</p>
+					<pre><code class="javascript">var Welcome = React.createClass({
+	getInitialState: function() {
+		return {count: 10};
+	},
+	render: function() {
+		return (
+			&lt;p>
+				Welcome {this.props.firstName} {this.props.lastName}!
+				Count: {this.state.count}
+			&lt;/p>
+		);
+	}
+})</code></pre>
+				</section>
+
+				<!-- State basics -->
+				<section>
+					<h2>The basics of state</h2>
+					<p>To work with stateful components, you need to:</p>
+					<ul>
+						<li>define <code class="inline">getInitialState()</code> to set the state (a simple object)</li>
+						<li>use <code class="inline">this.setState(newState, callback)</code> to update the state in mutations.
+							<ul>
+								<li>Learn more in <a href="https://facebook.github.io/react/docs/react-component.html#setstate" target="_blank">the docs</a>.</li>
+							</ul>
+						</li>
+					</ul>
+					<pre><code class="javascript">var MyComponent = React.createClass({
+	getInitialState: function() {
+		return {myKey: 1};
+	},
+	myFunc: function() {
+		this.setState({myKey: ++this.state.myKey});
+	},
+	render: function() {
+		return (
+			&lt;div>
+				&lt;span>Props: {this.props.myProp}&lt;/span>
+				&lt;span>Props: {this.state.myKey}&lt;/span>
+				&lt;button onClick={this.myFunc}>
+					Trigger state!
+				&lt;/button>
+			&lt;/div>
+		);
+	}
+});
+
+ReactDOM.render(
+	&lt;MyComponent myProp={'some string'} />,
+	document.getElementById('app')
+);</code></pre>
+				</section>
+
+				<!-- Exercise: Stateful Component -->
+				<section>
+					<h2>Let&rsquo;s Develop It!</h2>
+					<ul>
+						<li>Start from <a href="http://jsbin.com/gewuji/1/edit?html,js,output" target="_blank">here</a>.</li>
+						<li>Fix the broken counter
+							<ul>
+								<li>Add a minus button</li>
+								<li>Fix the <code class="inline">inc</code> method so it increments the counter.</li>
+								<li>Write the <code class="inline">dec</code> method so it decrements the counter.</li>
+								<li>Make sure the <code class="inline">inc</code> and <code class="inline">dec</code> methods are called when their corresponding buttons are clicked.</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<!-- Component Specifications -->
+				<section>
+					<h2>Component Specifications</h2>
+					<p>The component spec includes:</p>
+					<ul>
+						<li><code class="inline">render()</code> describes the component markup, and is the only required method</li>
+						<li><code class="inline">getInitialState()</code> sets the starting state</li>
+						<li><code class="inline">getDefaultProps()</code> defines the default prop values for all instances of a component</li>
+						<li><code class="inline">propTypes</code> defines prop value constraints</li>
+						<li>Learn more in <a href="https://facebook.github.io/react/docs/reusable-components.html" target="_blank">the docs</a>.</li>
+					</ul>
+				</section>
+
+				<!-- Component Spec Example -->
+				<section>
+					<h2>Component Specifications</h2>
+					<pre><code class="javascript">var MyComponent = React.createClass({
+
+	// required
+	render: function() { return &lt;p>Hi!&lt;/p>; },
+
+	// Invoked once before the component is mounted. The return value sets this.state.
+	getInitialState: function() {
+		return { count: 0 };
+	},
+
+	// Invoked once and cached when the class is created.
+	getDefaultProps: function() {
+		return { color: 'blue' };
+	},
+
+	// specifies constraints on props
+	propTypes: {
+		name: React.PropTypes.string.required,
+		optionalNumber: React.PropTypes.number
+	}
+});</code></pre>
+				</section>
+
+				<!-- Exercise: Breaking Props -->
+				<section>
+					<h2>Let&rsquo;s Develop It!</h2>
+					<ul>
+						<li><a href="http://jsbin.com/yadular/1/edit?html,js,output" target="_blank">Start here</a>.</li>
+						<li>Modify the <code class="inline">render</code> method to use the state.</li>
+						<li>Experiment! Can you break the state?</li>
+						<li>Modify the <code class="inline">render</code> method to use the props.</li>
+						<li>Experiment! Can you break the props?</li>
+						<li>Try to use the component:
+							<ul>
+								<li>without the required props</li>
+								<li>with prop values with the wrong type</li>
+								<li>What happens?!?!</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<!-- Component Lifecycle -->
+				<section>
+					<h2>Component Lifecycle</h2>
+					<p>Components have a lifecycle in three phases:</p>
+					<ol>
+						<li><strong>Mounting:</strong> a new instance of a component will be added to a view</li>
+						<li><strong>Updating:</strong> rendering updates</li>
+						<li><strong>Unmounting:</strong> an instance of a component is removed from the view</li>
+					</ol>
+					<p>Learn more about the lifecycle in <a href="https://facebook.github.io/react/docs/react-component.html" target="_blank">the docs</a>.</p>
+				</section>
+
+				<!-- Lifecycle example -->
+				<section>
+					<h2>Component Lifecycle</h2>
+					<pre><code class="javascript">var MyComponent = React.createClass({
+
+	// required
+	render: function() { return &lt;p>Hi!&lt;/p>; },
+
+	// Mounting: called once immediately before rendering
+	componentWillMount: function() { ... },
+
+	// Mounting: called once immediately after rendering
+	componentDidMount: function() { ... },
+
+	// Updating: called when new props are passed in
+	// ** may happen on 2nd and subsequent renders
+	componentWillReceiveProps: function(nextProps) {
+		if (this.props.thing !== nextProps.thing ) {
+			.. do something about it
+		}
+	},
+
+	// Updating: Invoked before rendering when new props or state are being received.
+	// return true to allow render, return false to prevent
+	shouldComponentUpdate: function(nextProps, nextState) {
+		return false;
+	},
+
+	// Updating: an update will occur
+	componentWillUpdate: function(nextProps, nextState) { },
+
+	// Updating: an update did occur
+	componentDidUpdate: function(prevProps, prevState) { },
+
+	// Unmounting:
+	componentWillUnmount: function() {
+	 // do clean up to avoid memory leaks!
+	}
+});</code></pre>
+				</section>
+
+				<!-- Exercise: Lifecyle -->
+				<section>
+					<h2>Let&rsquo;s Develop It!</h2>
+					<ul>
+						<li><a href="http://jsbin.com/gujome/1/edit?js,console,output" target="_blank">Start here</a>.</li>
+						<li>Click the buttons <span class="green">One</span>, <span class="green">Two</span>, and <span class="green">Three</span> while observing what happens in the console.</li>
+						<li>What is happening?
+							<ul>
+								<li>When does <code class="inline">&lt;SectionTwo /></code> unmount?</li>
+								<li>Is there anything you don&rsquo;t expect happening?</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<!-- Forms -->
+				<section>
+					<h2>Forms!</h2>
+					<p>Forms in React present some interesting challenges.</p>
+					<ul>
+						<li>Unlike other elements, form controls can be mutated by users.
+							<ul>
+								<li><code class="inline">&lt;input></code></li>
+								<li><code class="inline">&lt;select></code></li>
+								<li><code class="inline">&lt;textarea></code></li>
+							</ul>
+						</li>
+					</ul>
+					<p><br>Try <a href="http://jsbin.com/jacoyes/2/edit?html,js,output" target="_blank">this example</a> and see what happens!</p>
+					<p>Learn more about forms in <a href="https://facebook.github.io/react/docs/forms.html" target="_blank">the docs</a>.</p>
+				</section>
+
+				<!-- Form inputs -->
+				<section>
+					<h2>Form Inputs</h2>
+					<p>Input controls in React provide a few props that are designed to keep the UI state information synchronized with the underlying DOM:</p>
+					<ul>
+						<li><code class="inline">value</code>: the current value of the input</li>
+						<li><code class="inline">defaultValue</code>: used if the value is null or undefined</li>
+						<li><code class="inline">onChange</code>: a general event handler, use instead of onInput</li>
+					</ul>
+				</section>
+
+				<!-- Exercise: Forms -->
+				<section>
+					<h2>Let&rsquo;s Develop It!</h2>
+					<ul>
+						<li><a href="http://jsbin.com/coxuto/1/edit?html,js,output" target="_blank">Start here</a>.</li>
+						<li>Take a look at the <code class="inline">handleChange</code> method.</li>
+						<li>Our component will accept a prop. What happens when you pass a prop to the component?</li>
+						<li>How do we get the value the user entered in the field?</li>
+					</ul>
+				</section>
+
+				<!-- Tips for using forms -->
+				<section>
+					<h2>React Form Tips</h2>
+					<ul>
+						<li>Keep the form element's state in sync with React
+							<ul>
+								<li>Use the state to set the value of the form element</li>
+								<li>Use a method to update the state each time the value of the form element changes</li>
+							</ul>
+						</li>
+						<li>Focus on one-way data flow</li>
+
+					</ul>
+				</section>
+
+				<!-- Questions? -->
+				<section>
+					<h1>Questions?</h1>
+				</section>
+
+				<!-- Resources -->
+				<section>
+					<h2>Resources</h2>
+					<p>Some handy places to learn more and dig deeper:</p>
+					<ul>
+						<li><a href="https://facebook.github.io/react/index.html" target="_blank">Official React documentation</a></li>
+						<li><a href="https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.f4fk68scr" target="_blank">Presentational vs Container components</a></li>
+						<li><a href="http://www.pro-react.com/" target="_blank">Pro React</a> book and companion site</li>
+						<li><a href=" http://reactfordesigners.com/labs/reactjs-introduction-for-people-who-know-just-enough-jquery-to-get-by/" target="_blank">Beginner-level intro to React</a></li>
+						<li><a href=" http://patternhatch.com/2016/07/06/a-primer-on-the-react-ecosystem-part-1-of-3" target="_blank">React Primer</a></li>
+						<li><a href=" http://react.statuscode.com/" target="_blank">Weekly React newsletter</a></li>
+					</ul>
+				</section>
+
+				<!-- Thank you -->
+				<section>
+					<h2>Thank you!</h2>
+					<p>We strive to make every class better than the last, but we need your help to do it! Please take 2 minutes to take our class survey:</p>
+					<p><br><a href="https://docs.google.com/a/girldevelopit.com/forms/d/1lTcDIQ8VermgIqIyXrGHQ0PsGW6cYHYZDlDeimJzO50/edit">Take the survey</a></p>
+				</section>
+
+
+			</div>
+			<footer>
+				<div class="copyright">
+					Introduction to React.js -- Los Angeles --
+					<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+				</div>
+			</footer>
+		</div>
+
+
+		<script src="dist/js/head.min.js"></script>
+		<script src="dist/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+						Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'dist/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+										{ src: 'plugin/accessibility-helper/js/accessibility-helper.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
