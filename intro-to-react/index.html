@@ -41,16 +41,21 @@
 				<script src="dist/js/html5shiv.js"></script>
 				<![endif]-->
 	</head>
+
 	<body>
+
 		<div class="reveal">
+
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
+
 				<!-- Title Slide -->
 				<section>
 					<img src="dist/img/circle-gdi-logo.png" alt="GDI Logo" class="noborder"/>
 					<h1>Introduction to React.js</h1>
 					<h2>Part One</h2>
 				</section>
+
 				<!-- Welcome-->
 				<section>
 					<h2>Welcome!</h2>
@@ -65,24 +70,27 @@
 						</ul>
 					</div>
 				</section>
+
 				<!-- Wifi info -->
 				<section>
 						<h2>Welcome!</h2>
 						<h4 class="blue">Wifi Info</h4>
 						<p>
-							<strong></strong></p>
+								<strong>Network:</strong></p>
 						<p>
-							<strong>pw: </strong></p>
+								<strong>Password:</strong></p>
 						<br/>
 						<h3>Class Slides</h3>
-						<p>Please download workshop files at:<br />
-						<a href="http://gdila.org/react-part1" target="_blank">gdila.org/react-part1</a></p>
+						<p>You can download workshop files at:<br />
+						<a href="https://github.com/knightbk/intro-to-react" target="_blank">https://github.com/knightbk/intro-to-react</a></p>
 				</section>
+
 				<!-- Host/sponsor -->
 				<section>
 						<h2>Thanks to our host:</h2>
-						<h1>Kenzie Academy!</h1>
+						<h1>IndieDesk!</h1>
 				</section>
+
 				<!-- Introductions -->
 				<section>
 					<h2>Welcome!</h2>
@@ -95,22 +103,12 @@
 						</ul>
 					</div>
 				</section>
-				<!-- TAs -->
-				<section>
-					<h2>Teaching Assistants</h2>
-					<h1 class="green">Thank you!</h1>
-					<div class="align-left">
-						<p class="blue">Tell us about yourself.</p>
-						<ul>
-							<li>Who are you?</li>
-							<li>If you could live anywhere in the world and have everything and everyone that you love with you, where would you choose to live?</li>
-						</ul>
-					</div>
-				</section>
+
 				<!-- Teacher -->
 				<section>
 					<h1>About Me</h1>
 				</section>
+
 				<!-- Overview -->
 				<section>
 					<h2>Overview</h2>
@@ -124,8 +122,8 @@
 						<li>Forms with React</li>
 					</ul>
 				</section>
-				<!-- What is React -->
 
+				<!-- What is React -->
 				<section>
 					<h2>What is React.js?</h2>
 					<div class="align-left">
@@ -193,15 +191,11 @@
 						<li>A JavaScript object</li>
 						<li>A set of key/value pairs that represents the current state of the application.</li>
 					</ul>
-					<pre>
-						<code class="javascript">
-							var me = {
-							mood: happy,
-							age: 42,
-							sleeping: false
-						};
-						</code>
-					</pre>
+					<pre><code class="javascript">var me = {
+	mood: happy,
+	age: 42,
+	sleeping: false
+};</code></pre>
 				</section>
 
 				<!-- Concepts: Component -->
@@ -247,31 +241,24 @@
 						<li>To create a component called <code class="inline">WelcomeText</code> that generates the HTML:
 							<pre><code class="xml">&lt;p>Welcome to the React class!&lt;/p></code></pre>
 							We could create a component like this:
-							<pre>
-								<code class="javascript">
-									var WelcomeText = function() {
-										return (
-										 &lt;p>Welcome to the React class!&lt;/p>
-									  );
-									};
-								</code>
-							</pre>
+							<pre><code class="javascript">var WelcomeText = function() {
+	return (
+		&lt;p>Welcome to the React class!&lt;/p>
+	);
+};</code></pre>
 						Which is the equivalent of:
-					<pre>
-						<code class="javascript">
-							var WelcomeText = React.createComponent({
-								render: function render() {
-									return React.createElement(
-									"p",
-									null,
-									"Welcome to the React class!"
-									);
-								}
-							});
-						</code>
-					</pre>
-				</li>
-				</ul>
+					<pre><code class="javascript">var WelcomeText = React.createComponent({
+	render: function render() {
+		return React.createElement(
+			"p",
+			null,
+			"Welcome to the React class!"
+		);
+	}
+});</code></pre>
+						</li>
+
+					</ul>
 				</section>
 
 				<!-- Component exercise -->
@@ -328,39 +315,25 @@
 							</ul>
 						</li>
 					</ul>
-					<pre>
-						<code class="javascript">
-							// WelcomeText accepts the prop 'name'
-							&lt;WelcomeText name={'Adam'} />
+					<pre><code class="javascript">// WelcomeText accepts the prop 'name'
+&lt;WelcomeText name={'Adam'} />
 
-							// WelcomeText component
-							var WelcomeText = function(props) {
-								return (
-								 &lt;p>Welcome to the class, {props.name}!&lt;/p>
-								);
-							};
+// WelcomeText component
+var WelcomeText = function(props) {
+	return (
+	 &lt;p>Welcome to the class, {props.name}!&lt;/p>
+	);
+};
 
-							// will output
-							// &lt;p>Welcome to the class, Adam!&lt;/p>
-						</code>
-					</pre>
-					<p>
-						<small>
-							<a href="http://jsbin.com/paquxi/2/edit?css,js,output" target="_blank">
-								http://jsbin.com/paquxi/2/edit?css,js,output
-							</a>
-						</small>
-					</p>
+// will output
+// &lt;p>Welcome to the class, Adam!&lt;/p></code></pre>
+				<p><small><a href="http://jsbin.com/paquxi/2/edit?css,js,output" target="_blank">http://jsbin.com/paquxi/2/edit?css,js,output</a></small></p>
 				</section>
 
 				<!-- Dynamic Components Example -->
 				<section>
 					<h2>Dynamic Components Example</h2>
-					<p>
-						<a href="http://jsbin.com/watikop/edit?css,js,output" target="_blank">
-							http://jsbin.com/watikop/edit?css,js,output
-						</a>
-					</p>
+					<p><a href="http://jsbin.com/watikop/edit?css,js,output" target="_blank">http://jsbin.com/watikop/edit?css,js,output</a></p>
 				</section>
 
 				<!-- JS Objects -->
@@ -398,18 +371,13 @@
 				<section>
 					<h2>How to make an object</h2>
 					<p>With an object literal:</p>
-					<pre>
-						<code class="javascript">
-							var contact0 = {
-								firstName: 'Natalie',
-								lastName: 'MacLees',
-								organization: 'Girl Develop It'
-							};
-						</code>
-					</pre>
+					<pre><code class="javascript">var contact0 = {
+	firstName: 'Natalie',
+	lastName: 'MacLees',
+	organization: 'Girl Develop It'
+};</code></pre>
 					<p>Adding properties:</p>
-					<pre>
-						<code class="javascript">var contact1 = {};
+					<pre><code class="javascript">var contact1 = {};
 contact1.firstName = 'Irina';
 contact1.lastName = 'Muchnik';
 contact1['organization'] = 'Girl Develop It';</code></pre>
@@ -443,33 +411,29 @@ contact2['lastName'];</code></pre>
 					<h2>Maps, Dictionaries, &amp; Hashes</h2>
 					<p>An object is often used as a <span class="blue">map</span>, <span class="blue">dictionary</span> or <span class="blue">dict</span>, <span class="blue">hash</span>, or a key/value store.</p>
 					<p>These are data structures that are indexed by <span class="blue">keys</span>.</p>
-					<pre>
-						<code class="javascript">
-							var appData = {
-								users: [{
-										name: 'joe',
-										id: 2
-									}, {
-										name: 'jane',
-										id: 1
-									}
-								],
-								books: [{
-										title: 'Green Eggs &amp; Ham',
-										author: 'Dr. Suess',
-										ISBN13: '978-0394800165'
-									}
-								],
-								booksByISBN13: {
-									'978-0394800165': {
-										title: 'Green Eggs &amp; Ham',
-										author: 'Dr. Suess',
-										ISBN13: '978-0394800165'
-									}
-								}
-							};
-						</code>
-					</pre>
+					<pre><code class="javascript">var appData = {
+	users: [{
+			name: 'joe',
+			id: 2
+		}, {
+			name: 'jane',
+			id: 1
+		}
+	],
+	books: [{
+			title: 'Green Eggs &amp; Ham',
+			author: 'Dr. Suess',
+			ISBN13: '978-0394800165'
+		}
+	],
+	booksByISBN13: {
+		'978-0394800165': {
+			title: 'Green Eggs &amp; Ham',
+			author: 'Dr. Suess',
+			ISBN13: '978-0394800165'
+		}
+	}
+};</code></pre>
 				</section>
 
 				<!-- Methods and 'this' -->
@@ -478,50 +442,42 @@ contact2['lastName'];</code></pre>
 					<ul>
 						<li>A method is a function that is set as the value of a property</li>
 						<li>The <code class="inline">this</code> keyword refers to the enclosing object</li>
-						<pre>
-							<code class="javascript">
-								var currentUser = {
-									firstName: 'Deanna',
-									middleInitial: 'J',
-									lastName: 'Gardner',
-									fullName: function() {
-										// 'this' is a reference to the enclosing object
-										return this.firstName + ' ' + this.lastName;
-									}
-								};
+						<pre><code class="javascript">var currentUser = {
+	firstName: 'Deanna',
+	middleInitial: 'J',
+	lastName: 'Gardner',
+	fullName: function() {
+		// 'this' is a reference to the enclosing object
+		return this.firstName + ' ' + this.lastName;
+	}
+};
 
-								console.log(currentUser.fullName());
+console.log(currentUser.fullName());
 
-								function getMiddleInitial() {
-									return this.middleInitial;
-								}
+function getMiddleInitial() {
+	return this.middleInitial;
+}
 
-								currentUser.mI = getMiddleInitial;
+currentUser.mI = getMiddleInitial;
 
-								console.log(currentUser.mI()); // logs 'J'
-							</code>
-						</pre>
+console.log(currentUser.mI()); // logs 'J'</code></pre>
 					</ul>
 				</section>
 
 				<!-- React props are objects -->
 				<section>
 					<h2>React props === objects</h2>
-					<pre>
-						<code class="javascript">
-						var Welcome = function(props) {
-							return (
-								&lt;p>Welcome {props.firstName} {props.lastName}!&lt;/p>
-							);
-						};
+					<pre><code class="javascript">var Welcome = function(props) {
+	return (
+		&lt;p>Welcome {props.firstName} {props.lastName}!&lt;/p>
+	);
+};
 
-						// We pass the props like this
-						&lt;Welcome firstName={'Billie'} lastName={'Jensen'} />
+// We pass the props like this
+&lt;Welcome firstName={'Billie'} lastName={'Jensen'} />
 
-						// order doesn't matter for props
-						&lt;Welcome lastName={'Lee'} firstName={'Brennen'} />
-						</code>
-					</pre>
+// order doesn't matter for props
+&lt;Welcome lastName={'Lee'} firstName={'Brennen'} /></code></pre>
 				</section>
 
 				<!-- Exercise: Project Widget Props -->
@@ -569,17 +525,13 @@ var myComponent = React.createClass({
 					<h2>Getting a component onto the page</h2>
 					<h3><code class="inline">ReactDOM.render</code></h3>
 					<p>A library method that we will use to place components into our webpage</p>
-					<pre>
-						<code class="javascript">
-							// The ReactDOM library provides an object 'ReactDOM' with a function 'render'
+					<pre><code class="javascript">// The ReactDOM library provides an object 'ReactDOM' with a function 'render'
 
-							// It needs the component and the target in the DOM
-							ReactDOM.render(&lt;MyReactComponent />, mountAtNode);
+// It needs the component and the target in the DOM
+ReactDOM.render(&lt;MyReactComponent />, mountAtNode);
 
-							// mountAtNode in our case is
-							document.getElementByID('app')
-						</code>
-					</pre>
+// mountAtNode in our case is
+document.getElementByID('app')</code></pre>
 				</section>
 
 				<!-- Stateful components -->
@@ -628,34 +580,30 @@ var myComponent = React.createClass({
 							</ul>
 						</li>
 					</ul>
-					<pre>
-						<code class="javascript">
-							var MyComponent = React.createClass({
-								getInitialState: function() {
-									return {myKey: 1};
-								},
-								myFunc: function() {
-									this.setState({myKey: ++this.state.myKey});
-								},
-								render: function() {
-									return (
-										&lt;div>
-											&lt;span>Props: {this.props.myProp}&lt;/span>
-											&lt;span>Props: {this.state.myKey}&lt;/span>
-											&lt;button onClick={this.myFunc}>
-												Trigger state!
-											&lt;/button>
-										&lt;/div>
-									);
-								}
-							});
+					<pre><code class="javascript">var MyComponent = React.createClass({
+	getInitialState: function() {
+		return {myKey: 1};
+	},
+	myFunc: function() {
+		this.setState({myKey: ++this.state.myKey});
+	},
+	render: function() {
+		return (
+			&lt;div>
+				&lt;span>Props: {this.props.myProp}&lt;/span>
+				&lt;span>Props: {this.state.myKey}&lt;/span>
+				&lt;button onClick={this.myFunc}>
+					Trigger state!
+				&lt;/button>
+			&lt;/div>
+		);
+	}
+});
 
-							ReactDOM.render(
-								&lt;MyComponent myProp={'some string'} />,
-								document.getElementById('app')
-							);
-						</code>
-					</pre>
+ReactDOM.render(
+	&lt;MyComponent myProp={'some string'} />,
+	document.getElementById('app')
+);</code></pre>
 				</section>
 
 				<!-- Exercise: Stateful Component -->
@@ -690,31 +638,27 @@ var myComponent = React.createClass({
 				<!-- Component Spec Example -->
 				<section>
 					<h2>Component Specifications</h2>
-					<pre>
-						<code class="javascript">
-							var MyComponent = React.createClass({
+					<pre><code class="javascript">var MyComponent = React.createClass({
 
-								// required
-								render: function() { return &lt;p>Hi!&lt;/p>; },
+	// required
+	render: function() { return &lt;p>Hi!&lt;/p>; },
 
-								// Invoked once before the component is mounted. The return value sets this.state.
-								getInitialState: function() {
-									return { count: 0 };
-								},
+	// Invoked once before the component is mounted. The return value sets this.state.
+	getInitialState: function() {
+		return { count: 0 };
+	},
 
-								// Invoked once and cached when the class is created.
-								getDefaultProps: function() {
-									return { color: 'blue' };
-								},
+	// Invoked once and cached when the class is created.
+	getDefaultProps: function() {
+		return { color: 'blue' };
+	},
 
-								// specifies constraints on props
-								propTypes: {
-									name: React.PropTypes.string.required,
-									optionalNumber: React.PropTypes.number
-								}
-							});
-						</code>
-					</pre>
+	// specifies constraints on props
+	propTypes: {
+		name: React.PropTypes.string.required,
+		optionalNumber: React.PropTypes.number
+	}
+});</code></pre>
 				</section>
 
 				<!-- Exercise: Breaking Props -->
@@ -751,46 +695,42 @@ var myComponent = React.createClass({
 				<!-- Lifecycle example -->
 				<section>
 					<h2>Component Lifecycle</h2>
-					<pre>
-						<code class="javascript">
-							var MyComponent = React.createClass({
+					<pre><code class="javascript">var MyComponent = React.createClass({
 
-							// required
-							render: function() { return &lt;p>Hi!&lt;/p>; },
+	// required
+	render: function() { return &lt;p>Hi!&lt;/p>; },
 
-							// Mounting: called once immediately before rendering
-							componentWillMount: function() { ... },
+	// Mounting: called once immediately before rendering
+	componentWillMount: function() { ... },
 
-							// Mounting: called once immediately after rendering
-							componentDidMount: function() { ... },
+	// Mounting: called once immediately after rendering
+	componentDidMount: function() { ... },
 
-							// Updating: called when new props are passed in
-							// ** may happen on 2nd and subsequent renders
-							componentWillReceiveProps: function(nextProps) {
-								if (this.props.thing !== nextProps.thing ) {
-									.. do something about it
-								}
-							},
+	// Updating: called when new props are passed in
+	// ** may happen on 2nd and subsequent renders
+	componentWillReceiveProps: function(nextProps) {
+		if (this.props.thing !== nextProps.thing ) {
+			.. do something about it
+		}
+	},
 
-							// Updating: Invoked before rendering when new props or state are being received.
-							// return true to allow render, return false to prevent
-							shouldComponentUpdate: function(nextProps, nextState) {
-								return false;
-							},
+	// Updating: Invoked before rendering when new props or state are being received.
+	// return true to allow render, return false to prevent
+	shouldComponentUpdate: function(nextProps, nextState) {
+		return false;
+	},
 
-							// Updating: an update will occur
-							componentWillUpdate: function(nextProps, nextState) { },
+	// Updating: an update will occur
+	componentWillUpdate: function(nextProps, nextState) { },
 
-							// Updating: an update did occur
-							componentDidUpdate: function(prevProps, prevState) { },
+	// Updating: an update did occur
+	componentDidUpdate: function(prevProps, prevState) { },
 
-							// Unmounting:
-							componentWillUnmount: function() {
-							 // do clean up to avoid memory leaks!
-							}
-						});
-						</code>
-					</pre>
+	// Unmounting:
+	componentWillUnmount: function() {
+	 // do clean up to avoid memory leaks!
+	}
+});</code></pre>
 				</section>
 
 				<!-- Exercise: Lifecyle -->
@@ -821,9 +761,7 @@ var myComponent = React.createClass({
 							</ul>
 						</li>
 					</ul>
-					<p>
-						<br>Try
-						<a href="http://jsbin.com/jacoyes/2/edit?html,js,output" target="_blank">this example</a> and see what happens!</p>
+					<p><br>Try <a href="http://jsbin.com/jacoyes/2/edit?html,js,output" target="_blank">this example</a> and see what happens!</p>
 					<p>Learn more about forms in <a href="https://facebook.github.io/react/docs/forms.html" target="_blank">the docs</a>.</p>
 				</section>
 
@@ -860,6 +798,7 @@ var myComponent = React.createClass({
 							</ul>
 						</li>
 						<li>Focus on one-way data flow</li>
+
 					</ul>
 				</section>
 
@@ -889,6 +828,7 @@ var myComponent = React.createClass({
 					<p><br><a href="https://docs.google.com/a/girldevelopit.com/forms/d/1lTcDIQ8VermgIqIyXrGHQ0PsGW6cYHYZDlDeimJzO50/edit">Take the survey</a></p>
 				</section>
 
+
 			</div>
 			<footer>
 				<div class="copyright">
@@ -898,13 +838,15 @@ var myComponent = React.createClass({
 			</footer>
 		</div>
 
+
 		<script src="dist/js/head.min.js"></script>
 		<script src="dist/js/reveal.min.js"></script>
 
 		<script>
+
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
+						Reveal.initialize({
 				controls: true,
 				progress: true,
 				history: true,
@@ -920,9 +862,11 @@ var myComponent = React.createClass({
 					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/accessibility-helper/js/accessibility-helper.js', async: true, condition: function() { return !!document.body.classList; } }
+										{ src: 'plugin/accessibility-helper/js/accessibility-helper.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
 			});
+
 		</script>
+
 	</body>
 </html>
