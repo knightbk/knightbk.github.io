@@ -1,7 +1,6 @@
 ---
-layout: default
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: home
 ---
-
-Welcome to my blog. Browse the list of posts on the left.
-
-[If you are here for Intro to React click here!](./intro-to-react/index.html "Intro to React")
